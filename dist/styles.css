@@ -1,0 +1,179 @@
+body {
+    background-color: #373b44;
+    color: #282c34;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+    color: #b1b1b1;
+}
+
+.app {
+    text-align: center;
+}
+
+.app-header {
+    border-bottom: 10px solid whitesmoke;
+    margin: 5vh;
+    margin-bottom: 10vh;
+    padding-right: 10vh;
+    height: calc(10px + 6vmin);
+    text-align: right;
+    font-size: calc(10px + 2vmin);
+    color: whitesmoke;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 5vh;
+    font-size: 3vh;
+}
+
+li {
+    background-color: teal;
+    margin: 1vh;
+    position: relative;
+    padding: 1vh;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+li button {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    background: transparent;
+    border: none;
+    font-size: 2vh;
+    font-weight: 800;
+    height: 10px;
+    line-height: 10px;
+    transition: all .2s ease-in-out;
+}
+
+li button:hover {
+    cursor: pointer;
+    color: yellowgreen;
+}
+
+@keyframes strike {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 120%;
+    }
+}
+
+.done .text {
+    position: relative;
+}
+
+.done .text::after {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    width: 120%;
+    height: 5px;
+    background: white;
+    opacity: 0.5;
+    animation-name: strike;
+    animation-duration: .5s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    transform: skewX(-20deg);
+}
+
+/* ----- start ----- INPUT STYLE ----- start ----- */
+
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form__field {
+    font-family: inherit;
+    width: 90%;
+    border: 0;
+    border-bottom: 5px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.7s;
+}
+
+.form__field::placeholder {
+    color: transparent;
+}
+
+.form__field:placeholder-shown~.form__label {
+    font-size: 4vh;
+    ;
+    cursor: text;
+    top: 20px;
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b;
+}
+
+.form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 5px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+}
+
+.form__field:focus~.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #11998e;
+    font-weight: 700;
+}
+
+/* reset input */
+.form__field:required,
+.form__field:invalid {
+    box-shadow: none;
+}
+
+.form__submit {
+    width: 10%;
+    font-size: 5vh;
+    background: transparent;
+    color: #9b9b9b;
+    border: none;
+    transition: all .2s ease-in-out;
+}
+
+.form__field:focus~.form__submit,
+.form__submit:hover,
+.form__submit:active {
+    cursor: pointer;
+    color: #38ef7d;
+}
+
+/* ----- end ----- INPUT STYLE ----- end ----- */
