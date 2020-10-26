@@ -3,7 +3,7 @@ import { removeElement, updateElement } from "./API";
 
 let li = {
     done: function(state) {
-        return state ? 'done' : '';
+        return state ? 'done' : null;
     },
 
     view: function(vnode) {
