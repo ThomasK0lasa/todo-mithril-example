@@ -3,6 +3,7 @@ import m from "mithril";
 const APIurl = "http://localhost:3001/v1/elements/";
 
 export let list = [];
+export let canConnect = true;
 
 export function getElements() {
     m.request({
@@ -11,6 +12,9 @@ export function getElements() {
     })
     .then(function(result) {
         list = result;
+    })
+    .catch(function(error) {
+        canConnect = false;
     })
 }
 
@@ -25,7 +29,7 @@ export function addElement(newtask) {
     })
 }
 
-export async function updateElement(index, element) {
+export function updateElement(index, element) {
     m.request({
         method: "PUT",
         url: APIurl+index,
@@ -38,7 +42,7 @@ export async function updateElement(index, element) {
     });
 }
 
-export async function removeElement(index) {
+export function removeElement(index) {
     m.request({
         method: "DELETE",
         url: APIurl+index,

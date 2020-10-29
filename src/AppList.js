@@ -5,7 +5,6 @@ import AppListItem from "./AppListItem"
 const AppList = {
     oninit: getElements,
     view: function() {
-        console.log(list);
         if (list.length > 0) {
             return m("ul", list.map(function(task) {
                 return m(AppListItem, {id: task._id, name: task.name, done: task.done})

@@ -155,8 +155,8 @@ li button:hover {
 }
 
 /* reset input */
-.form__field:required,
-.form__field:invalid {
+
+.form__field:required, .form__field:invalid {
     box-shadow: none;
 }
 
@@ -169,11 +169,14 @@ li button:hover {
     transition: all .2s ease-in-out;
 }
 
-.form__field:focus~.form__submit,
-.form__submit:hover,
-.form__submit:active {
+.form__field:focus~.form__submit, .form__submit:hover, .form__submit:active {
     cursor: pointer;
     color: #38ef7d;
 }
 
 /* ----- end ----- INPUT STYLE ----- end ----- */
+
+.error {
+    color: red;
+    font-size: 3vh;
+}
