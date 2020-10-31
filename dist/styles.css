@@ -34,6 +34,7 @@ ul {
 }
 
 li {
+    color: white;
     background-color: teal;
     margin: 1vh;
     position: relative;

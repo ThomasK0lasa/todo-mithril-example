@@ -3,7 +3,7 @@ import m from "mithril";
 const APIurl = "http://localhost:3001/v1/elements/";
 
 export let list = [];
-export let canConnect = true;
+export let canConnect = null;
 
 export function getElements() {
     m.request({
@@ -11,10 +11,13 @@ export function getElements() {
         url: APIurl,
     })
     .then(function(result) {
+        canConnect = true;
         list = result;
     })
     .catch(function(error) {
         canConnect = false;
+        console.error("Can't connect to db server");
+        throw error;
     })
 }
 
@@ -27,6 +30,10 @@ export function addElement(newtask) {
     .then(function(result) {
         getElements();
     })
+    .catch(function(error) {
+        console.error('addElement Error');
+        throw error;
+    })
 }
 
 export function updateElement(index, element) {
@@ -37,9 +44,11 @@ export function updateElement(index, element) {
     })
     .then(function(result) {
         getElements();
-    }).catch(function(e) {
-        console.log(e.message);
-    });
+    })
+    .catch(function(error) {
+        console.error('updateElement Error');
+        throw error;
+    })
 }
 
 export function removeElement(index) {
@@ -50,5 +59,9 @@ export function removeElement(index) {
     })
     .then(function(result) {
         getElements();
+    })
+    .catch(function(error) {
+        console.error('removeElement Error');
+        throw error;
     })
 }

@@ -20,10 +20,10 @@ const AppForm = {
                         placeholder: "Task",
                         name: "name",
                         required: 'required',
+                        value: task,
                         oninput: function(e) {
                             task = e.target.value;
-                        },
-                        value: task
+                        }
                     }),
                     m('label.form__label', {for: 'name'}, "Task"),
                     m('input.form__submit', {type: "submit", value: "+"})
